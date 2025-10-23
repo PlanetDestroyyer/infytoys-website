@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Package, Shield, Truck, Award, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import carouselImage1 from 'figma:asset/c06a5c3740e502b7ca91433b8b8abc18e09e0ef5.png';
-import carouselImage2 from 'figma:asset/5311fd30c8b3a8b5f4e383fd361490aa097aa3ba.png';
-import carouselImage3 from 'figma:asset/4656597180285eea0837ec2ac407a2b90c8c166d.png';
-import carouselImage4 from 'figma:asset/4bde899e2ce161b6ae21250583db805bf1af0ce8.png';
-import carouselImage5 from 'figma:asset/c06a5c3740e502b7ca91433b8b8abc18e09e0ef5.png';
+import carouselImage1 from '../assets/c06a5c3740e502b7ca91433b8b8abc18e09e0ef5.png';
+import carouselImage2 from '../assets/5311fd30c8b3a8b5f4e383fd361490aa097aa3ba.png';
+import carouselImage3 from '../assets/4656597180285eea0837ec2ac407a2b90c8c166d.png';
+import carouselImage4 from '../assets/4bde899e2ce161b6ae21250583db805bf1af0ce8.png';
+import carouselImage5 from '../assets/c06a5c3740e502b7ca91433b8b8abc18e09e0ef5.png';
 
 interface HomeProps {
   onNavigate: (page: string) => void;
