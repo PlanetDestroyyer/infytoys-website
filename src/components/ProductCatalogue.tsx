@@ -136,7 +136,7 @@ export function ProductCatalogue() {
                 >
                   <div className="aspect-square bg-gradient-to-br from-purple-50 to-gray-50 flex items-center justify-center">
                     <ImageWithFallback
-                      src={`/picture/${product.image}`}
+                      src={`/src/assets/${product.image}`}
                       alt={product.name}
                       className="w-full h-full object-contain transform hover:scale-110 transition-transform duration-500"
                     />
