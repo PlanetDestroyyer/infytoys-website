@@ -4,102 +4,85 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 
 export function ProductCatalogue() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
-
-  const categories = ['All', 'Mini Toys', 'Candy Packs', 'Surprise Boxes', 'Collectibles', 'Novelty Items'];
 
   const products = [
     {
       id: 1,
-      name: 'Rainbow Surprise Collection',
+      name: 'Alligator Transformer',
       category: 'Surprise Boxes',
-      description: 'Assorted toys with premium candy selection',
-      sku: 'CT-SB-001',
+      image: 'ALLIGATOR-TRANSFORMER-scaled.jpg',
     },
     {
       id: 2,
-      name: 'Mini Racer Series',
+      name: 'Baby Dino Hatching',
       category: 'Mini Toys',
-      description: 'Die-cast toy vehicles with fruit candies',
-      sku: 'CT-MT-045',
+      image: 'BABY-DINO-HATCHING--scaled.jpg',
     },
     {
       id: 3,
-      name: 'Sweet Adventure Pack',
+      name: 'Beyblade 2in1 Fidget',
       category: 'Candy Packs',
-      description: 'Adventure-themed candy with collectible figures',
-      sku: 'CT-CP-023',
+      image: 'BEYBLADE-2IN-1-FIDGET--scaled.jpg',
     },
     {
       id: 4,
-      name: 'Animal Kingdom Set',
+      name: 'Big Transformer',
       category: 'Collectibles',
-      description: 'Wildlife toy collection with gummy treats',
-      sku: 'CT-CL-012',
+      image: 'BIG-TRANSFORMER--scaled.jpg',
     },
     {
       id: 5,
-      name: 'Crystal Magic Box',
+      name: 'Dino Allosaurus',
       category: 'Surprise Boxes',
-      description: 'Magical themed box with assorted candies',
-      sku: 'CT-SB-008',
+      image: 'DINO-ALLOSAURUS-scaled.jpg',
     },
     {
       id: 6,
-      name: 'Hero Squad Mini Pack',
+      name: 'Dino Boomerang',
       category: 'Mini Toys',
-      description: 'Action figure minis with candy surprises',
-      sku: 'CT-MT-067',
+      image: 'DINO-BOOMERANG--scaled.jpg',
     },
     {
       id: 7,
-      name: 'Tropical Burst Combo',
+      name: 'Dino Caudipteryx Dino',
       category: 'Candy Packs',
-      description: 'Tropical flavored candies with beach toys',
-      sku: 'CT-CP-034',
+      image: 'DINO-CAUDIPTERYX-DINO-scaled.jpg',
     },
     {
       id: 8,
-      name: 'Space Explorer Series',
+      name: 'Dino Diplodocus',
       category: 'Collectibles',
-      description: 'Space-themed collectibles with candy',
-      sku: 'CT-CL-019',
+      image: 'DINO-DIPLODOCUS-scaled.jpg',
     },
     {
       id: 9,
-      name: 'Princess Dream Collection',
+      name: 'Dino Edmontonia',
       category: 'Novelty Items',
-      description: 'Princess accessories with sweet treats',
-      sku: 'CT-NV-005',
+      image: 'DINO-EDMONTONIA-scaled.jpg',
     },
     {
       id: 10,
-      name: 'Dinosaur Discovery Pack',
+      name: 'DIY Irritator Dino',
       category: 'Collectibles',
-      description: 'Educational dinosaur toys with candies',
-      sku: 'CT-CL-027',
+      image: 'DIY IRRITATOR DINO.jpg',
     },
     {
       id: 11,
-      name: 'Sports Champions Set',
+      name: 'DIY Minion',
       category: 'Mini Toys',
-      description: 'Mini sports equipment with candy',
-      sku: 'CT-MT-089',
+      image: 'DIY MINION.jpg',
     },
     {
       id: 12,
-      name: 'Ocean Friends Bundle',
+      name: 'DIY Cat',
       category: 'Surprise Boxes',
-      description: 'Marine life toys with assorted candies',
-      sku: 'CT-SB-015',
+      image: 'diy-cat--scaled.jpg',
     },
   ];
 
   const filteredProducts = products.filter(
     (product) =>
-      (selectedCategory === 'All' || product.category === selectedCategory) &&
-      (product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        product.sku.toLowerCase().includes(searchTerm.toLowerCase()))
+      product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
@@ -117,35 +100,20 @@ export function ProductCatalogue() {
       {/* Search and Filter Section */}
       <section className="py-8 bg-white shadow-sm sticky top-20 z-40">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
+          <div className="flex flex-col lg:flex-row gap-4 items-center justify-center">
             {/* Search Bar */}
             <div className="relative w-full lg:w-96">
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
               <input
                 type="text"
-                placeholder="Search by name or SKU..."
+                placeholder="Search by name..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-100 transition-all duration-300"
               />
             </div>
 
-            {/* Category Filter */}
-            <div className="flex flex-wrap gap-2 justify-center">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 ${
-                    selectedCategory === category
-                      ? 'bg-purple-600 text-white shadow-lg'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
+
           </div>
         </div>
       </section>
@@ -168,9 +136,9 @@ export function ProductCatalogue() {
                 >
                   <div className="aspect-square bg-gradient-to-br from-purple-50 to-gray-50 flex items-center justify-center">
                     <ImageWithFallback
-                      src="https://images.unsplash.com/photo-1596572934492-c9f36de67874?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2xvcmZ1bCUyMGd1bW15JTIwY2FuZGllc3xlbnwxfHx8fDE3NjA0NzI0NzF8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                      src={`/picture/${product.image}`}
                       alt={product.name}
-                      className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-contain transform hover:scale-110 transition-transform duration-500"
                     />
                   </div>
                   <div className="p-4">
@@ -178,10 +146,8 @@ export function ProductCatalogue() {
                       <span className="text-xs px-2 py-1 bg-purple-100 text-purple-700 rounded">
                         {product.category}
                       </span>
-                      <span className="text-xs text-gray-500">{product.sku}</span>
                     </div>
                     <h3 className="text-gray-900 mb-2">{product.name}</h3>
-                    <p className="text-gray-600 text-sm mb-4">{product.description}</p>
                     <button className="w-full px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
                       View Details
                     </button>
