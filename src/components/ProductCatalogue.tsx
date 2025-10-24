@@ -266,27 +266,29 @@ export function ProductCatalogue() {
           {folderStructure.map((folder) => (
             <div key={folder.name} className="mb-12">
               <h3 className="text-4xl font-semibold text-gray-900 mb-6 border-b border-gray-200 pb-2 text-center">{folder.name}</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center">
-                {folder.products.map((product) => (
-                  <div
-                    key={product.id}
-                    className="bg-white rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col w-full max-w-xs"
-                  >
-                    <div className="aspect-square bg-gradient-to-br from-purple-50 to-gray-50 flex items-center justify-center flex-grow">
-                      <ImageWithFallback
-                        src={`/assets/${product.image}`}
-                        alt={product.name}
-                        className="w-full h-full object-contain transform hover:scale-110 transition-transform duration-500"
-                      />
+              <div className="flex justify-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {folder.products.map((product) => (
+                    <div
+                      key={product.id}
+                      className="bg-white rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col w-full max-w-xs"
+                    >
+                      <div className="aspect-square bg-gradient-to-br from-purple-50 to-gray-50 flex items-center justify-center flex-grow">
+                        <ImageWithFallback
+                          src={`/assets/${product.image}`}
+                          alt={product.name}
+                          className="w-full h-full object-contain transform hover:scale-110 transition-transform duration-500"
+                        />
+                      </div>
+                      <div className="p-4 text-center">
+                        <h3 className="text-gray-900 mb-2">{product.name}</h3>
+                        <button className="w-full px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                          View Details
+                        </button>
+                      </div>
                     </div>
-                    <div className="p-4 text-center">
-                      <h3 className="text-gray-900 mb-2">{product.name}</h3>
-                      <button className="w-full px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
-                        View Details
-                      </button>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           ))}
